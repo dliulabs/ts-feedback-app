@@ -9,11 +9,18 @@ import { FeedbackItemType } from "./components/FeedbackItem";
 const App: React.FC = () => {
   const [feedback, setFeedback] = useState<FeedbackItemType[]>(FeedbackData);
 
+  const deleteFeedback = (id: number) => {
+    console.log(id);
+  };
+
   return (
     <>
       <Header text="Feedback UI Header" />
       <div className="container">
-        <FeedbackList feedback={FeedbackData} />
+        <FeedbackList
+          feedback={FeedbackData}
+          handleDelete={(id: number) => deleteFeedback(id)}
+        />
       </div>
     </>
   );
